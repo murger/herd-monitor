@@ -1,11 +1,13 @@
 {
-  "name": "noisy-alpaca",
+  "name": "herd-monitor",
   "version": "0.0.1",
   "description": "Coding challenge",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "start": "parcel pub/index.html"
+    "start:api": "./bin/server-darwin-10.6-amd64",
+    "start:web": "parcel pub/index.html",
+    "start": "concurrently npm:start:*"
   },
   "keywords": [],
   "author": "Gürhan Mermer <gmermer@gmail.com>",
@@ -14,6 +16,7 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "concurrently": "^4.1.1",
     "jest": "^24.8.0",
     "parcel-bundler": "^1.12.3",
     "react-test-renderer": "^16.8.6"
