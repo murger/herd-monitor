@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from '../Select/Select';
+import Select from '../Select';
 import { Masthead, Logo, Typeface } from './style';
 import larry from '../../../pub/larry.svg';
 
