@@ -7,7 +7,7 @@
     "test": "jest",
     "start:api": "./bin/server-darwin-10.6-amd64",
     "start:web": "parcel pub/index.html",
-    "start": "concurrently npm:start:*"
+    "start": "concurrently npm:start:* --raw"
   },
   "keywords": [],
   "author": "Gürhan Mermer <gmermer@gmail.com>",
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
   }
 }

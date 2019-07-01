@@ -1,10 +1,25 @@
 import React, { Component, Fragment } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import Header from '../Header';
+import Transactions from '../Transactions';
+import Paginator from '../Paginator';
+
+const GlobalStyles = createGlobalStyle({
+  body: {
+		margin: '0 auto',
+		padding: '32px 0',
+		maxWidth: 960,
+  }
+});
 
 class App extends Component {
 	render () {
 		return (
 			<Fragment>
-				Voila!
+				<GlobalStyles />
+				<Header />
+				<Transactions />
+				<Paginator />
 			</Fragment>
 		);
 	}
