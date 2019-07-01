@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SelectWrapper = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   display: inline-block;
   border-radius: 8px;

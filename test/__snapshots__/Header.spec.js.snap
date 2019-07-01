@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the correctly 1`] = `
+<header
+  className="sc-htpNat hfZxvQ"
+>
+  <span>
+    <img
+      className="sc-bxivhb jSVldU"
+      src=""
+    />
+    <div
+      className="sc-ifAKCX fGpzrZ"
+    >
+      Herd
+      <br />
+      Monitor
+    </div>
+  </span>
+  <span>
+    <div
+      className="sc-bdVaJa fRmVhe"
+    >
+      <select
+        className="sc-bwzfXH ejOUFP"
+      >
+        <option>
+          Date
+        </option>
+        <option>
+          Status
+        </option>
+      </select>
+    </div>
+  </span>
+</header>
+`;

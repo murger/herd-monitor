@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the correctly 1`] = `
+<div
+  className="sc-bdVaJa fRmVhe"
+>
+  <select
+    className="sc-bwzfXH ejOUFP"
+  />
+</div>
+`;

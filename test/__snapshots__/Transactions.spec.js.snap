@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the correctly 1`] = `
+<ul
+  className="sc-bdVaJa cBsPko"
+>
+  <li
+    className="sc-bwzfXH iOBHAi"
+  >
+    Alpha
+  </li>
+  <li
+    className="sc-bwzfXH iOBHAi"
+  >
+    Beta
+  </li>
+  <li
+    className="sc-bwzfXH iOBHAi"
+  >
+    Gamma
+  </li>
+</ul>
+`;
