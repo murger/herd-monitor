@@ -1,8 +1,8 @@
 @font-face {
-  font-display:swap;
-  font-family: Mabry-Medium;
+  font-family: Mabry;
+  font-display: swap;
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 500;
 	src: url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.otf);
 	src: url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.eot);
   src: url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.eot#iefix) format("embedded-opentype"),
@@ -12,8 +12,8 @@
 }
 
 @font-face {
-  font-display:swap;
-  font-family: Mabry-Bold;
+  font-family: Mabry;
+  font-display: swap;
 	font-style: normal;
 	font-weight: 700;
 	src: url(https://assets.fatllama.com/static/fonts/mabry-bold-pro.otf);
@@ -25,8 +25,8 @@
 }
 
 @font-face {
-  font-display:swap;
-  font-family: Mabry-Black;
+  font-family: Mabry;
+  font-display: swap;
 	font-style: normal;
 	font-weight: 900;
 	src: url(https://assets.fatllama.com/static/fonts/mabry-black-pro.otf);
@@ -35,4 +35,10 @@
     url(https://assets.fatllama.com/static/fonts/mabry-black-pro.woff2) format("woff2"),
     url(https://assets.fatllama.com/static/fonts/mabry-black-pro.woff) format("woff"),
     url(https://assets.fatllama.com/static/fonts/mabry-black-pro.ttf) format("truetype");
+}
+
+body {
+  font-weight: 500;
+  font-family: Mabry, Helvetica, Arial, Sans-serif;
+  -webkit-font-smoothing: antialiased;
 }

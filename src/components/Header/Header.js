@@ -16,17 +16,20 @@ const Typeface = styled.div({
 	display: 'inline-block',
 	marginLeft: 8,
 	color: '#090D45',
-	fontFamily: 'Mabry-Black, Helvetica, Arial',
 	fontSize: 24,
+	fontWeight: 900,
 	lineHeight: 0.9,
-	letterSpacing: -0.5,
+	letterSpacing: -1,
 });
 
 const Header = () => {
 	return (
 		<Masthead>
 			<Logo src={logo} />
-			<Typeface>Herd<br />Monitor</Typeface>
+			<Typeface>
+				Herd<br />
+				Monitor
+			</Typeface>
 		</Masthead>
 	);
 };

@@ -9,7 +9,6 @@ const GlobalStyles = createGlobalStyle({
 		margin: '0 auto',
 		padding: '16px 0',
 		maxWidth: 960,
-		fontFamily: 'Mabry-Medium, Helvetica, Arial',
   }
 });
 
