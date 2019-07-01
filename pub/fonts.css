@@ -1,0 +1,38 @@
+@font-face {
+  font-display:swap;
+  font-family: Mabry-Medium;
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.otf);
+	src: url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.eot);
+  src: url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.eot#iefix) format("embedded-opentype"),
+    url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.woff2) format("woff2"),
+    url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.woff) format("woff"),
+    url(https://assets.fatllama.com/static/fonts/mabry-medium-pro.ttf) format("truetype");
+}
+
+@font-face {
+  font-display:swap;
+  font-family: Mabry-Bold;
+	font-style: normal;
+	font-weight: 700;
+	src: url(https://assets.fatllama.com/static/fonts/mabry-bold-pro.otf);
+	src: url(https://assets.fatllama.com/static/fonts/mabry-bold-pro.eot);
+  src: url(https://assets.fatllama.com/static/fonts/mabry-bold-pro.eot#iefix) format("embedded-opentype"),
+    url(https://assets.fatllama.com/static/fonts/mabry-bold-pro.woff2) format("woff2"),
+    url(https://assets.fatllama.com/static/fonts/mabry-bold-pro.woff) format("woff"),
+    url(https://assets.fatllama.com/static/fonts/mabry-bold-pro.ttf) format("truetype");
+}
+
+@font-face {
+  font-display:swap;
+  font-family: Mabry-Black;
+	font-style: normal;
+	font-weight: 900;
+	src: url(https://assets.fatllama.com/static/fonts/mabry-black-pro.otf);
+	src: url(https://assets.fatllama.com/static/fonts/mabry-black-pro.eot);
+  src: url(https://assets.fatllama.com/static/fonts/mabry-black-pro.eot#iefix) format("embedded-opentype"),
+    url(https://assets.fatllama.com/static/fonts/mabry-black-pro.woff2) format("woff2"),
+    url(https://assets.fatllama.com/static/fonts/mabry-black-pro.woff) format("woff"),
+    url(https://assets.fatllama.com/static/fonts/mabry-black-pro.ttf) format("truetype");
+}

@@ -7,8 +7,9 @@ import Paginator from '../Paginator';
 const GlobalStyles = createGlobalStyle({
   body: {
 		margin: '0 auto',
-		padding: '32px 0',
+		padding: '16px 0',
 		maxWidth: 960,
+		fontFamily: 'Mabry-Medium, Helvetica, Arial',
   }
 });
 

@@ -9,12 +9,16 @@ const List = styled.ul({
 	listStyle: 'none',
 });
 
+const Item = styled.li({
+	padding: '8px 0',
+});
+
 const Transactions = () => {
 	return (
 		<List>
-			<li>Alpha</li>
-			<li>Beta</li>
-			<li>Gamma</li>
+			<Item>Alpha</Item>
+			<Item>Beta</Item>
+			<Item>Gamma</Item>
 		</List>
 	);
 };
