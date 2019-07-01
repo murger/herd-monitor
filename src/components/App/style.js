@@ -3,7 +3,12 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
   body {
 		margin: 0 auto;
-		padding: 16px 0;
+		padding: 0;
 		max-width: 960px;
   }
 `;
+
+export const theme = {
+  navy: '#090D45',
+  purple: '#4629d3',
+};

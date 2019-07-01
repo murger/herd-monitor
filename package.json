@@ -2,7 +2,7 @@
   "name": "herd-monitor",
   "version": "0.0.1",
   "description": "Coding challenge",
-  "main": "src/index.js",
+  "main": "pub/index.html",
   "scripts": {
     "test": "jest",
     "start:api": "./bin/server-darwin-10.6-amd64",

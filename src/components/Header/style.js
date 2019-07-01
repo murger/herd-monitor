@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Masthead = styled.header`
   width: 100%;
-  padding: 32px;
+  padding: 32px 24px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-end;
@@ -16,10 +16,10 @@ export const Logo = styled.img`
 export const Typeface = styled.div`
   display: inline-block;
   margin-left: 8px;
-  color: #090D45;
+  color: ${props => props.theme.navy};
   font-size: 24px;
   font-weight: 900;
   line-height: 0.9;
-  letter-spacing: ${-1};
+  letter-spacing: -1px;
   vertical-align: baseline;
 `;

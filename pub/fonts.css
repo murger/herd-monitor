@@ -38,7 +38,9 @@
 }
 
 body {
+  font-size: 16px;
   font-weight: 500;
   font-family: Mabry, Helvetica, Arial, Sans-serif;
+  line-height: 22px;
   -webkit-font-smoothing: antialiased;
 }
