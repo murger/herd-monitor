@@ -1,16 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { GlobalStyles } from './styled';
 import Header from '../Header';
 import Transactions from '../Transactions';
 import Paginator from '../Paginator';
-
-const GlobalStyles = createGlobalStyle({
-  body: {
-		margin: '0 auto',
-		padding: '16px 0',
-		maxWidth: 960,
-  }
-});
 
 class App extends Component {
 	render () {
