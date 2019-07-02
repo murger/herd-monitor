@@ -1,19 +1,19 @@
 import React from 'react';
-import { TransactionConsumer } from '../../contexts/TransactionContext';
+import { DataConsumer } from '../../contexts/DataContext';
 import { List, Item } from './style';
 
 const TransactionList = () => {
 	return (
 		<List>
-			<TransactionConsumer>
-				{({ data, loading }) =>
+			<DataConsumer>
+				{({ data }) => (
 					data.map((item, index) => (
 						<Item key={index}>
-							{item.id}
+							#{item.lenderId} &rarr; #{item.borrowerId}
 						</Item>
 					))
-				}
-			</TransactionConsumer>
+				)}
+			</DataConsumer>
 		</List>
 	);
 };
