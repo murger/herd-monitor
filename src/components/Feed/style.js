@@ -7,7 +7,3 @@ export const List = styled.ul`
   box-sizing: border-box;
   list-style: none;
 `;
-
-export const Item = styled.li`
-	padding: 8px 0;
-`;

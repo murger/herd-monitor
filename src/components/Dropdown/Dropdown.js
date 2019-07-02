@@ -1,11 +1,11 @@
 import React from 'react';
-import { Wrapper, Selector } from './style';
+import { Wrapper, Select } from './style';
 
 const Dropdown = ({ children }) => (
   <Wrapper>
-    <Selector>
+    <Select>
       {children}
-    </Selector>
+    </Select>
   </Wrapper>
 );
 

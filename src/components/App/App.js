@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, theme } from './style';
 import { DataProvider } from '../../contexts/DataContext';
 import Header from '../Header';
-import TransactionList from '../TransactionList';
+import Feed from '../Feed';
 import Paginator from '../Paginator';
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
 					<GlobalStyles />
 					<DataProvider>
 						<Header />
-						<TransactionList />
+						<Feed />
 						<Paginator />
 					</DataProvider>
 				</Fragment>

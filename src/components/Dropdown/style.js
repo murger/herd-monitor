@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Selector = styled.select`
+export const Select = styled.select`
   display: block;
   font-size: 16px;
   font-weight: 500;
