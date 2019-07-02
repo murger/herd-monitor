@@ -1,13 +1,24 @@
 import React from 'react';
 import { DataConsumer } from '../../contexts/DataContext';
-import { Wrapper, Button } from './style';
+import Button from '../Button';
+import { Wrapper, Notice } from './style';
 
 const Paginator = () => (
 	<Wrapper>
 		<DataConsumer>
-			{({ loadTransactions }) => (
-				<Button onClick={loadTransactions}>Load more</Button>
-			)}
+			{({ fetchTransactions, loading, error }) => {
+				if (loading) {
+					return <Notice>Loading...</Notice>;
+				} else if (error) {
+					return <Notice error={true}>That didn't happen 🤔</Notice>;
+				}
+
+				return (
+					<Button onClick={fetchTransactions}>
+						Load more
+					</Button>
+				);
+			}}
 		</DataConsumer>
 	</Wrapper>
 );

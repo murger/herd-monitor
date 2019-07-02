@@ -1,10 +1,10 @@
 import React from 'react';
 import { Wrapper, Selector } from './style';
 
-const Dropdown = (props) => (
+const Dropdown = ({ children }) => (
   <Wrapper>
     <Selector>
-      {props.children}
+      {children}
     </Selector>
   </Wrapper>
 );

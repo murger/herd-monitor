@@ -4,10 +4,20 @@ export const Wrapper = styled.div`
   position: relative;
   display: inline-block;
   margin-bottom: 4px;
+  color: ${props => props.theme.purple};
   border: 1px solid ${props => props.theme.purple};
   border-radius: 4px;
   vertical-align: baseline;
   cursor: pointer;
+
+  &:hover {
+    color: ${props => props.theme.blue};
+    border-color: ${props => props.theme.blue};
+
+    &:after {
+      border-top-color: ${props => props.theme.blue};
+    }
+  }
 
   &:after {
     z-index: 1;
@@ -28,7 +38,7 @@ export const Selector = styled.select`
   font-size: 16px;
   font-weight: 500;
   font-family: Mabry;
-  color: ${props => props.theme.purple};
+  color: inherit;
   line-height: 14px;
   padding: 10px;
   padding-right: 32px;
