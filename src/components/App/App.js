@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, theme } from './style';
-import { DataProvider } from '../../contexts/DataContext';
+import { ServiceProvider } from '../../contexts/ServiceContext';
 import Header from '../Header';
 import Feed from '../Feed';
 import Paginator from '../Paginator';
@@ -12,11 +12,11 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <Fragment>
           <GlobalStyles />
-          <DataProvider>
+          <ServiceProvider>
             <Header />
             <Feed />
             <Paginator />
-          </DataProvider>
+          </ServiceProvider>
         </Fragment>
       </ThemeProvider>
     );

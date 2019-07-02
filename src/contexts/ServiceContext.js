@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import TransactionService from '../services/TransactionService';
 import UserService from '../services/UserService';
 
-const DataContext = React.createContext();
+const ServiceContext = React.createContext();
 
-export class DataProvider extends Component {
+export class ServiceProvider extends Component {
   state = {
     page: 0,
     data: [],
@@ -30,10 +30,12 @@ export class DataProvider extends Component {
         loading: false,
       }));
     } catch (error) {
+      const timeout = 1000 * 3.5;
+
       this.setState({
         error: true,
         loading: false,
-      }, () => setTimeout(this.resetError, 3500));
+      }, () => setTimeout(this.resetError, timeout));
     }
   };
 
@@ -47,7 +49,7 @@ export class DataProvider extends Component {
     const { fetchTransactions } = this;
 
     return (
-      <DataContext.Provider
+      <ServiceContext.Provider
         value={{
           data,
           error,
@@ -55,9 +57,9 @@ export class DataProvider extends Component {
           fetchTransactions,
         }}>
         {children}
-      </DataContext.Provider>
+      </ServiceContext.Provider>
     );
   }
 }
 
-export const DataConsumer = DataContext.Consumer;
+export const ServiceConsumer = ServiceContext.Consumer;

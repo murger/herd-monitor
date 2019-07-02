@@ -1,18 +1,18 @@
 import React from 'react';
-import { DataConsumer } from '../../contexts/DataContext';
+import { ServiceConsumer } from '../../contexts/ServiceContext';
 import FeedItem from '../FeedItem';
 import { List } from './style';
 
 const Feed = () => {
   return (
     <List>
-      <DataConsumer>
+      <ServiceConsumer>
         {({ data }) =>
           data.map((item, index) =>
             <FeedItem key={index} data={item} />
           )
         }
-      </DataConsumer>
+      </ServiceConsumer>
     </List>
   );
 };

@@ -1,16 +1,16 @@
 import React from 'react';
-import { DataConsumer } from '../../contexts/DataContext';
+import { ServiceConsumer } from '../../contexts/ServiceContext';
 import Button from '../Button';
 import { Wrapper, Notice } from './style';
 
 const Paginator = () => (
   <Wrapper>
-    <DataConsumer>
+    <ServiceConsumer>
       {({ fetchTransactions, loading, error }) => {
         if (loading) {
           return <Notice>Loading...</Notice>;
         } else if (error) {
-          return <Notice error={true}>That didn't happen 🤔</Notice>;
+          return <Notice error={true}>An error occurred 🤔</Notice>;
         }
 
         return (
@@ -19,7 +19,7 @@ const Paginator = () => (
           </Button>
         );
       }}
-    </DataConsumer>
+    </ServiceConsumer>
   </Wrapper>
 );
 
