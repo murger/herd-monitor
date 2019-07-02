@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from '../Select';
+import Dropdown from '../Dropdown';
 import { Masthead, Logo, Typeface } from './style';
 import larry from '../../../pub/larry.svg';
 
@@ -13,11 +13,11 @@ const Header = () => (
 			</Typeface>
 		</span>
 		<span>
-			<Select>
+			<Dropdown>
 				<option disabled>Sort By</option>
 				<option>Date</option>
 				<option>Status</option>
-			</Select>
+			</Dropdown>
 		</span>
 	</Masthead>
 );

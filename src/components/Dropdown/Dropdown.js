@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrapper, Selector } from './style';
 
-const Select = (props) => (
+const Dropdown = (props) => (
   <Wrapper>
     <Selector>
       {props.children}
@@ -9,4 +9,4 @@ const Select = (props) => (
   </Wrapper>
 );
 
-export default Select;
+export default Dropdown;
