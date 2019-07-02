@@ -1,9 +1,17 @@
 import React from 'react';
-import { Item } from './style';
+import { format } from 'date-fns';
+import { Item, Id, Date } from './style';
+
+const formatDate = (date) => (
+  format(date, 'D MMM')
+);
 
 const FeedItem = ({ data }) => (
   <Item>
-		#{data.lenderId} &rarr; #{data.borrowerId}
+    <Id>#{data.id}</Id>
+    <Date>
+      {formatDate(data.fromDate)} &rarr; {formatDate(data.toDate)}
+    </Date>
   </Item>
 );
 
