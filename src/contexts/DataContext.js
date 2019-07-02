@@ -41,9 +41,9 @@ export class DataProvider extends Component {
     this.setState({ error: false });
   };
 
-  render() {
+  render () {
     const { children } = this.props;
-    const { data, loading, error } = this.state;
+    const { data, loading, error } = this.state;
     const { fetchTransactions } = this;
 
     return (
