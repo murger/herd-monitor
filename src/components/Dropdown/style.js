@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  width: ${props => props.expand ? '100%' : 'auto'};
   position: relative;
   display: inline-block;
   margin-bottom: 4px;
   color: ${props => props.theme.purple};
   border: 1px solid ${props => props.theme.purple};
-  border-radius: 4px;
+  border-radius: ${props => props.theme.radius};
   vertical-align: baseline;
   cursor: pointer;
 

@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 		max-width: 960px;
 		margin: 0 auto;
     padding: 32px 24px;
+    -webkit-tap-highlight-color: transparent;
 
     @media (max-width: 480px) {
       padding: 32px 16px;
@@ -13,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const theme = {
+  red: '#cc3333',
   navy: '#090D45',
   purple: '#4629d3',
   blue: '#295cd3',
@@ -21,7 +23,7 @@ export const theme = {
   lightgray: '#ccc',
   offwhite: '#f0f0f0',
   offblack: '#333',
-  error: '#cc3333',
+  radius: '4px',
 
   getStatusColour: (type) => {
     switch (type) {

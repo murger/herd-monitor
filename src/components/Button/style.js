@@ -7,7 +7,7 @@ export const Element = styled.button`
   font-family: Mabry;
   color: white;
   background-color: ${props => props.theme.purple};
-  border-radius: 4px;
+  border-radius: ${props => props.theme.radius};
   border: 0;
   outline: none;
   cursor: pointer;

@@ -25,6 +25,7 @@ class App extends Component {
   };
 
   render () {
+    const { showPanel, hidePanel } = this;
     const { itemId, isPanelOpen } = this.state;
 
     return (
@@ -33,12 +34,12 @@ class App extends Component {
           <GlobalStyles />
           <ServiceProvider>
             <Header />
-            <Feed showPanel={this.showPanel} />
+            <Feed showPanel={showPanel} />
             <Paginator />
             <Panel
               itemId={itemId}
               isOpen={isPanelOpen}
-              hidePanel={this.hidePanel} />
+              hidePanel={hidePanel} />
           </ServiceProvider>
         </Fragment>
       </ThemeProvider>

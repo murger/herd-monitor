@@ -6,7 +6,7 @@ export const Item = styled.li`
   flex-wrap: wrap;
   justify-content: flex-end;
 	padding: 8px;
-  border-radius: 4px;
+  border-radius: ${props => props.theme.radius};
   cursor: pointer;
 
   &:hover {
@@ -27,7 +27,6 @@ export const Item = styled.li`
 export const Id = styled.span`
   flex-basis: 80px;
   color: ${props => props.theme.offblack};
-  border-radius: 4px;
 `;
 
 export const Date = styled.span`
@@ -53,7 +52,7 @@ export const Status = styled.span`
 
   color: ${props => props.theme.darkgray};
   background-color: ${props => props.theme.offwhite};
-  border-radius: 4px;
+  border-radius: ${props => props.theme.radius};
 
   @media (max-width: 480px) {
     position: absolute;
