@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
 		margin: 0 auto;
     padding: 32px 24px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       padding: 32px 16px;
     }
   }

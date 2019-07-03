@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Item = styled.li`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
 	padding: 8px;
   border-radius: 4px;
   cursor: pointer;
@@ -15,26 +17,22 @@ export const Item = styled.li`
     padding: 2px 0;
     padding-right: 8px;
     box-sizing: border-box;
+
+    @media (max-width: 480px) {
+      flex-basis: 100%;
+    }
   }
 `;
 
 export const Id = styled.span`
-  flex-basis: 72px;
+  flex-basis: 80px;
   color: ${props => props.theme.offblack};
   border-radius: 4px;
-
-  @media (max-width: 768px) {
-    flex-basis: 25%;
-  }
 `;
 
 export const Date = styled.span`
-  flex-basis: 98px;
+  flex-basis: 120px;
   color: ${props => props.theme.darkgray};
-
-  @media (max-width: 768px) {
-    flex-basis: 75%;
-  }
 `;
 
 export const Price = styled.span`
@@ -56,6 +54,11 @@ export const Status = styled.span`
   color: ${props => props.theme.darkgray};
   background-color: ${props => props.theme.offwhite};
   border-radius: 4px;
+
+  @media (max-width: 480px) {
+    position: absolute;
+    top: 8px;
+  }
 
   ${Item}:hover & {
     color: white;
