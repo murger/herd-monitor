@@ -2,10 +2,14 @@ import React from 'react';
 import Dropdown from '../Dropdown';
 import { Modal, Title, Close, Fieldset } from './style';
 
-const Panel = ({ itemId, isOpen, hidePanel }) => (
-  <Modal isOpen={isOpen}>
+const Panel = ({
+  selectedItemId,
+  isPanelOpen,
+  hidePanel,
+}) => (
+  <Modal isOpen={isPanelOpen}>
     <Close onClick={hidePanel}>&times;</Close>
-    <Title>#{itemId}</Title>
+    <Title>#{selectedItemId}</Title>
     <Fieldset>
       <legend>Lender</legend>
       Lorem ipsum dolor sit amet.

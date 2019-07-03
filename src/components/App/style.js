@@ -5,7 +5,13 @@ export const GlobalStyles = createGlobalStyle`
 		max-width: 960px;
 		margin: 0 auto;
     padding: 32px 24px;
+    padding-right: ${props => (props.isPanelOpen ? '344px' : '24px')};
+    transition: padding 0.3s ease;
     -webkit-tap-highlight-color: transparent;
+
+    @media (max-width: 960px) {
+      padding-right: 16px !important;
+    }
 
     @media (max-width: 480px) {
       padding: 32px 16px;
