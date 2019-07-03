@@ -12,7 +12,11 @@ export const Wrapper = styled.section`
 export const Notice = styled.span`
   padding: 10px 12px;
   line-height: 16px;
-  color: ${props => props.error ? 'white' : 'inherit'};
-  background-color: ${props => props.error ? '#cc3333' : '#f0f0f0'};
+  background-color: ${props => props.theme.offwhite};
   border-radius: 4px;
+`;
+
+export const Error = styled(Notice)`
+  color: white;
+  background-color: ${props => props.theme.error};
 `;

@@ -16,6 +16,10 @@ export class ServiceProvider extends Component {
     this.fetchTransactions();
   }
 
+  resetError = () => {
+    this.setState({ error: false });
+  };
+
   fetchTransactions = async () => {
     let { page } = this.state;
 
@@ -30,17 +34,11 @@ export class ServiceProvider extends Component {
         loading: false,
       }));
     } catch (error) {
-      const timeout = 1000 * 3.5;
-
       this.setState({
         error: true,
         loading: false,
-      }, () => setTimeout(this.resetError, timeout));
+      }, () => setTimeout(this.resetError, 1000 * 3.5));
     }
-  };
-
-  resetError = () => {
-    this.setState({ error: false });
   };
 
   render () {

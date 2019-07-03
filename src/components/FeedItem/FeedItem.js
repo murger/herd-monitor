@@ -1,17 +1,18 @@
 import React from 'react';
-import { format } from 'date-fns';
-import { Item, Id, Date } from './style';
+import { format, differenceInCalendarDays } from 'date-fns';
+import { Item, Id, Date, Status } from './style';
 
-const formatDate = (date) => (
-  format(date, 'D MMM')
-);
-
-const FeedItem = ({ data }) => (
+const FeedItem = ({ item }) => (
   <Item>
-    <Id>#{data.id}</Id>
+    <Id>#{item.id}</Id>
     <Date>
-      {formatDate(data.fromDate)} &rarr; {formatDate(data.toDate)}
+      {format(item.fromDate, 'D MMM')}
+      &nbsp;
+      ({differenceInCalendarDays(item.toDate, item.fromDate)}d)
     </Date>
+    <Status type={item.status}>
+      {item.status}
+    </Status>
   </Item>
 );
 

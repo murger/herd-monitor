@@ -42,7 +42,7 @@
     "space-before-blocks": "warn",
     "keyword-spacing": ["warn", { "before": true, "after": true }],
     "no-nested-ternary": "warn",
-    "arrow-parens": ["warn", "always"],
+    "arrow-parens": ["off", "always"],
 
     "no-else-return": "warn",
     "prefer-const": "warn",
@@ -76,6 +76,8 @@
     "prefer-template": "warn",
     "no-unused-vars": "warn",
     "eol-last": ["warn", "always"],
+
+    "react/prefer-stateless-function": ["warn", { "ignorePureComponents": true }],
     "react/jsx-uses-vars": "warn",
     "react/jsx-uses-react": "warn",
     "react/jsx-indent": ["warn", 2],

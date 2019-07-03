@@ -1,7 +1,7 @@
 import React from 'react';
 import { ServiceConsumer } from '../../contexts/ServiceContext';
 import Button from '../Button';
-import { Wrapper, Notice } from './style';
+import { Wrapper, Notice, Error } from './style';
 
 const Paginator = () => (
   <Wrapper>
@@ -10,7 +10,7 @@ const Paginator = () => (
         if (loading) {
           return <Notice>Loading...</Notice>;
         } else if (error) {
-          return <Notice error={true}>An error occurred 🤔</Notice>;
+          return <Error>An error occurred 🤔</Error>;
         }
 
         return (
