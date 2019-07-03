@@ -14,6 +14,7 @@ export const Item = styled.li`
   span {
     padding: 2px 0;
     padding-right: 8px;
+    box-sizing: border-box;
   }
 `;
 
@@ -21,6 +22,10 @@ export const Id = styled.span`
   flex-basis: 72px;
   color: ${props => props.theme.offblack};
   border-radius: 4px;
+
+  @media (max-width: 768px) {
+    flex-basis: 25%;
+  }
 `;
 
 export const Date = styled.span`
@@ -28,11 +33,7 @@ export const Date = styled.span`
   color: ${props => props.theme.darkgray};
 
   @media (max-width: 768px) {
-    flex-basis: 230px;
-  }
-
-  @media (max-width: 375px) {
-    flex-basis: 180px;
+    flex-basis: 75%;
   }
 `;
 

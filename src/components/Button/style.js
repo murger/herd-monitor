@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Element = styled.button`
-  padding: 10px 12px;
+  padding: 12px;
   font-size: 16px;
   font-weight: 500;
   font-family: Mabry;

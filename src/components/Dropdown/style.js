@@ -40,7 +40,7 @@ export const Select = styled.select`
   font-family: Mabry;
   color: inherit;
   line-height: 14px;
-  padding: 10px;
+  padding: 12px;
   padding-right: 32px;
   width: 100%;
   box-sizing: border-box;

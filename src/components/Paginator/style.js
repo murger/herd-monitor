@@ -9,7 +9,7 @@ export const Wrapper = styled.section`
 `;
 
 export const Notice = styled.span`
-  padding: 10px 12px;
+  padding: 12px;
   line-height: 16px;
   background-color: ${props => props.theme.offwhite};
   border-radius: 4px;
