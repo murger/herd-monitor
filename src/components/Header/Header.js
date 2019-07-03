@@ -13,8 +13,8 @@ const Header = () => (
       </Typeface>
     </span>
     <span>
-      <Dropdown>
-        <option disabled>Sort By</option>
+      <Dropdown defaultValue={0}>
+        <option value={0} disabled>Sort by</option>
         <option>Date</option>
         <option>Status</option>
       </Dropdown>

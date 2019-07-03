@@ -1,8 +1,8 @@
 import React from 'react';
 import { Element } from './style';
 
-const Button = ({ onClick, children }) => (
-  <Element onClick={onClick}>
+const Button = ({ children, ...props }) => (
+  <Element {...props}>
     {children}
   </Element>
 );
