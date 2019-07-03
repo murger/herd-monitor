@@ -25,7 +25,6 @@
     ],
     "padding-line-between-statements": [
       "warn",
-      { "blankLine": "always", "prev": "if", "next": "if" },
       { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
       { "blankLine": "always", "prev": "*", "next": ["const", "let", "var"] },
       { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]},
@@ -69,7 +68,7 @@
     "space-infix-ops": "warn",
     "space-unary-ops": ["warn", {"words": true, "nonwords": false}],
     "block-spacing": "warn",
-    "brace-style": ["warn", "1tbs", { "allowSingleLine": false }],
+    "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
     "no-multiple-empty-lines": ["warn", { "max": 1 }],
     "semi": "warn",
     "no-useless-constructor": "warn",

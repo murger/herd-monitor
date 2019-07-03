@@ -8,7 +8,7 @@ const FeedItem = ({ item }) => (
   <Item>
     <Id>#{item.id}</Id>
     <Date>
-      {format(item.fromDate, 'D MMM')}
+      {format(item.fromDate, "D MMM 'YY")}
       &nbsp;
       ({differenceInCalendarDays(item.toDate, item.fromDate)}d)
     </Date>

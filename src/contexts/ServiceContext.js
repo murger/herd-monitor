@@ -10,6 +10,7 @@ export class ServiceProvider extends Component {
     data: [],
     error: false,
     loading: true,
+    sort: null,
   };
 
   componentDidMount () {
@@ -28,12 +29,14 @@ export class ServiceProvider extends Component {
     try {
       const data = await TransactionService.getTransactionsByPageNo(++page);
 
+      // Mix new data and re-sort
       this.setState(prevState => ({
         page,
         data: [...prevState.data, ...data],
         loading: false,
-      }));
+      }), this.sortTransactions);
     } catch (error) {
+      // Error for a while
       this.setState({
         error: true,
         loading: false,
@@ -41,10 +44,26 @@ export class ServiceProvider extends Component {
     }
   };
 
+  sortTransactions = (field) => {
+    const { data, sort } = this.state;
+    const key = field || sort;
+    const criterion = {
+      fromDate: (a, b) => new Date(a[key]) - new Date(b[key]),
+      status: (a, b) => a[key].localeCompare(b[key]),
+    };
+
+    if (key) {
+      this.setState({
+        sort: key,
+        data: data.sort(criterion[key]),
+      });
+    }
+  };
+
   render () {
     const { children } = this.props;
     const { data, loading, error } = this.state;
-    const { fetchTransactions } = this;
+    const { fetchTransactions, sortTransactions } = this;
 
     return (
       <ServiceContext.Provider
@@ -53,6 +72,7 @@ export class ServiceProvider extends Component {
           error,
           loading,
           fetchTransactions,
+          sortTransactions,
         }}>
         {children}
       </ServiceContext.Provider>

@@ -31,7 +31,7 @@ export const Id = styled.span`
 `;
 
 export const Date = styled.span`
-  flex-basis: 120px;
+  flex-basis: 140px;
   color: ${props => props.theme.darkgray};
 `;
 
