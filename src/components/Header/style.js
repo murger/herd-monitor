@@ -16,6 +16,7 @@ export const Logo = styled.img`
 
 export const Typeface = styled.h1`
   display: inline-block;
+  margin: 0;
   margin-left: 8px;
   color: ${props => props.theme.navy};
   font-size: 24px;

@@ -3,13 +3,16 @@ import { ServiceConsumer } from '../../contexts/ServiceContext';
 import FeedItem from '../FeedItem';
 import { List } from './style';
 
-const Feed = () => (
+const Feed = ({ showPanel }) => (
   <List>
     <ServiceConsumer>
       {({ data }) =>
-        data.map((item, index) =>
-          <FeedItem key={index} item={item} />
-        )
+        data.map((item, index) => (
+          <FeedItem
+            key={index}
+            item={item}
+            onClick={() => showPanel(item.id)} />
+        ))
       }
     </ServiceConsumer>
   </List>

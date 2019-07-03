@@ -4,8 +4,8 @@ import { Item, Id, Date, Price, Status } from './style';
 import translate from '../../utils/translate';
 import formatCurrency from '../../utils/formatCurrency';
 
-const FeedItem = ({ item }) => (
-  <Item>
+const FeedItem = ({ item, ...props }) => (
+  <Item {...props}>
     <Id>#{item.id}</Id>
     <Date>
       {format(item.fromDate, "D MMM 'YY")}
