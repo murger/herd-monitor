@@ -8,3 +8,4 @@ optimisation.
 footprint of external libraries and keep everything simpler, easier to
 understand. This helps greatly in terms of maintenance and onboarding new
 people.
+- Would consider using Dinero if we'd need to work with money.

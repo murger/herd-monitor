@@ -2,9 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   body {
-		margin: 0 auto;
-		padding: 0;
 		max-width: 960px;
+		margin: 0 auto;
+    padding: 32px 24px;
+
+    @media (max-width: 768px) {
+      padding: 32px 16px;
+    }
   }
 `;
 

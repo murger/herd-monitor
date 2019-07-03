@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Item = styled.li`
   display: flex;
+  flex-wrap: wrap;
 	padding: 8px;
   border-radius: 4px;
   cursor: pointer;
@@ -12,23 +13,32 @@ export const Item = styled.li`
 
   span {
     padding: 2px 0;
+    padding-right: 8px;
   }
 `;
 
 export const Id = styled.span`
-  min-width: 72px;
+  flex-basis: 72px;
   color: ${props => props.theme.offblack};
   border-radius: 4px;
 `;
 
 export const Date = styled.span`
-  min-width: 96px;
+  flex-basis: 98px;
   color: ${props => props.theme.darkgray};
+
+  @media (max-width: 768px) {
+    flex-basis: 230px;
+  }
+
+  @media (max-width: 375px) {
+    flex-basis: 180px;
+  }
 `;
 
 export const Price = styled.span`
-  color: ${props => props.theme.gray};
   flex-grow: 1;
+  color: ${props => props.theme.gray};
 
   del {
     padding-left: 8px;
