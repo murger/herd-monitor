@@ -12,9 +12,11 @@ export const theme = {
   navy: '#090D45',
   purple: '#4629d3',
   blue: '#295cd3',
-  gray: '#aaa',
-  darkgray: '#999',
+  gray: '#999',
+  darkgray: '#666',
+  lightgray: '#ccc',
   offwhite: '#f0f0f0',
+  offblack: '#333',
   error: '#cc3333',
 
   getStatusColour: (type) => {

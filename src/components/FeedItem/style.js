@@ -9,22 +9,39 @@ export const Item = styled.li`
   &:hover {
     background-color: ${props => props.theme.offwhite};
   }
+
+  span {
+    padding: 2px 0;
+  }
 `;
 
 export const Id = styled.span`
-  padding: 2px 0;
   min-width: 72px;
+  color: ${props => props.theme.offblack};
   border-radius: 4px;
 `;
 
 export const Date = styled.span`
-  padding: 2px 0;
+  min-width: 96px;
+  color: ${props => props.theme.darkgray};
+`;
+
+export const Price = styled.span`
   color: ${props => props.theme.gray};
   flex-grow: 1;
+
+  del {
+    padding-left: 8px;
+    color: ${props => props.theme.lightgray};
+  }
 `;
 
 export const Status = styled.span`
-  padding: 2px 8px;
+  && {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   color: ${props => props.theme.darkgray};
   background-color: ${props => props.theme.offwhite};
   border-radius: 4px;
