@@ -47,7 +47,7 @@ export class ServiceProvider extends Component {
   sortTransactions = (field) => {
     const { data, sort } = this.state;
     const key = field || sort;
-    const criterion = {
+    const criteria = {
       fromDate: (a, b) => new Date(a[key]) - new Date(b[key]),
       status: (a, b) => a[key].localeCompare(b[key]),
     };
@@ -55,7 +55,7 @@ export class ServiceProvider extends Component {
     if (key) {
       this.setState({
         sort: key,
-        data: data.sort(criterion[key]),
+        data: data.sort(criteria[key]),
       });
     }
   };

@@ -3,13 +3,13 @@ import Dropdown from '../Dropdown';
 import { Modal, Title, Close, Fieldset } from './style';
 
 const Panel = ({
-  selectedItemId,
+  activeItemId,
   isPanelOpen,
   hidePanel,
 }) => (
   <Modal isOpen={isPanelOpen}>
     <Close onClick={hidePanel}>&times;</Close>
-    <Title>#{selectedItemId}</Title>
+    <Title>#{activeItemId}</Title>
     <Fieldset>
       <legend>Lender</legend>
       Lorem ipsum dolor sit amet.

@@ -7,18 +7,17 @@ export const Item = styled.li`
   justify-content: flex-end;
 	padding: 8px;
   border-radius: ${props => props.theme.radius};
-  background-color: ${props => (props.active) && props.theme.navy};
+  background-color: ${props => (props.active) && props.theme.offwhite};
   cursor: pointer;
 
   &:hover {
-    background-color: ${props => (!props.active) && props.theme.offwhite};
+    background-color: ${props => props.theme.whiteish};
   }
 
   span {
     padding: 2px 0;
     padding-right: 8px;
     box-sizing: border-box;
-    color: ${props => (props.active) && 'white'};
     background-color: inherit;
 
     @media (max-width: 480px) {
@@ -54,7 +53,6 @@ export const Status = styled.span`
   }
 
   color: ${props => props.theme.offblack};
-  background-color: ${props => props.theme.offwhite};
   border-radius: ${props => props.theme.radius};
 
   @media (max-width: 480px) {

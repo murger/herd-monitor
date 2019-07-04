@@ -5,7 +5,6 @@ export const GlobalStyles = createGlobalStyle`
 		max-width: 960px;
 		margin: 0 auto;
     padding: 32px 24px;
-    padding-right: ${props => (props.isPanelOpen ? '344px' : '24px')};
     transition: padding 0.3s ease;
     -webkit-tap-highlight-color: transparent;
 
@@ -24,10 +23,11 @@ export const theme = {
   navy: '#090D45',
   purple: '#4629d3',
   blue: '#295cd3',
-  gray: '#999',
-  darkgray: '#666',
+  gray: '#aaa',
+  darkgray: '#777',
   lightgray: '#ccc',
-  offwhite: '#f0f0f0',
+  whiteish: '#f5f5f5',
+  offwhite: '#eaeaea',
   offblack: '#333',
   radius: '4px',
 

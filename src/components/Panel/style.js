@@ -4,14 +4,19 @@ export const Modal = styled.aside`
 	z-index: 100;
   position: fixed;
   top: 0px;
-  right: ${props => props.isOpen ? '0px' : '-320px'};
-  width: 320px;
+  right: ${props => props.isOpen ? '0px' : '-360px'};
+  width: 360px;
   height: 100%;
   padding: 32px 24px;
   background-color: rgba(255, 255, 255, 0.95);
   border-left: 1px solid ${props => props.theme.lightgray};
   box-sizing: border-box;
   transition: right 0.3s ease;
+
+  @media (max-width: 480px) {
+    width: 320px;
+    right: ${props => props.isOpen ? '0px' : '-320px'};
+  }
 `;
 
 export const Title = styled.h2`
@@ -41,12 +46,16 @@ export const Close = styled.div`
 `;
 
 export const Fieldset = styled.fieldset`
-	border: 1px solid ${props => props.theme.gray};
-	border-radius: 4px;
+  border: 0ch;
+	border-top: 1px solid ${props => props.theme.gray};
 	margin: 16px 0;
+  margin-bottom: 24px;
+  padding: 0;
 
   legend {
     color: ${props => props.theme.gray};
-	  padding: 0 8px;
+    margin-bottom: 4px;
+	  padding: 0;
+    padding-right: 8px;
   }
 `;
