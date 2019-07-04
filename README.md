@@ -26,6 +26,7 @@ Build it for a production environment: `npm run build`.
 [unistore](https://www.npmjs.com/package/unistore) could also be considered for this role.
 - [Preact](https://preactjs.com/) could be considered instead of React as it's snappier, given the size optimisation.
 - There is support (responsivity) for mobile screens.
+- Extensions are available in both [VSCode](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components) and [WebStorm](https://plugins.jetbrains.com/plugin/9997-styled-components) for [styled-components](https://www.styled-components.com/) syntax highlighting.
 
 ## If I had more time...
 - Would optimise re-renders due from how Context API behaves.
