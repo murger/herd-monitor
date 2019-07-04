@@ -9,6 +9,7 @@ export const Item = styled.li`
   border-radius: ${props => props.theme.radius};
   background-color: ${props => (props.active) && props.theme.offwhite};
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     background-color: ${props => props.theme.whiteish};
@@ -34,6 +35,10 @@ export const Id = styled.span`
 export const Date = styled.span`
   flex-basis: 140px;
   color: ${props => props.theme.darkgray};
+
+  i {
+    font-style: normal;
+  }
 `;
 
 export const Price = styled.span`

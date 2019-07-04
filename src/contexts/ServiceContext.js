@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import TransactionService from '../services/TransactionService';
 import UserService from '../services/UserService';
 
-const ServiceContext = React.createContext();
+export const ServiceContext = React.createContext();
 
 export class ServiceProvider extends Component {
   state = {
     page: 0,
     data: [],
+    users: [],
     error: false,
     loading: true,
     sort: null,
@@ -60,10 +61,64 @@ export class ServiceProvider extends Component {
     }
   };
 
+  getTransaction = (id) => {
+    const { data } = this.state;
+
+    return data.find(item => item.id === id);
+  };
+
+  updateUser = async (index, data) => {
+    const { users } = this.state;
+
+    users.splice(index, 1, data);
+    await this.setState({ users });
+  };
+
+  fetchUser = async (id) => {
+    const { users } = this.state;
+    const idx = users.findIndex(item => item.id === id);
+    const index = (idx < 0) ? users.length : idx;
+    const user = this.getUser(id);
+
+    if (!user || user.error) {
+      await this.updateUser(index, { id, loading: true });
+    } else if (user) {
+      return user;
+    }
+
+    console.log(1, id);
+
+    try {
+      const data = await UserService.getUserById(id);
+
+      await this.updateUser(index, Object.assign(data, { id }));
+    } catch (error) {
+      console.log(0, id);
+      await this.updateUser(index, { id, error: true });
+    }
+  };
+
+  fetchUsers = (users) => {
+    users.forEach(id => this.fetchUser(id));
+  };
+
+  getUser = (id) => {
+    const { users } = this.state;
+    const data = users.find(item => item.id === id);
+
+    return data;
+  };
+
   render () {
     const { children } = this.props;
     const { data, loading, error } = this.state;
-    const { fetchTransactions, sortTransactions } = this;
+    const {
+      fetchTransactions,
+      sortTransactions,
+      getTransaction,
+      fetchUsers,
+      getUser,
+    } = this;
 
     return (
       <ServiceContext.Provider
@@ -73,6 +128,9 @@ export class ServiceProvider extends Component {
           loading,
           fetchTransactions,
           sortTransactions,
+          getTransaction,
+          fetchUsers,
+          getUser,
         }}>
         {children}
       </ServiceContext.Provider>

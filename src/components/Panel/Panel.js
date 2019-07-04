@@ -1,35 +1,108 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import { format, differenceInCalendarDays } from 'date-fns';
+import { ServiceContext, ServiceConsumer } from '../../contexts/ServiceContext';
 import Dropdown from '../Dropdown';
-import { Modal, Title, Close, Fieldset } from './style';
+import { Modal, Title, Close, Fieldset, User, Date, Price } from './style';
+import { DEFAULT_CURRENCY } from '../../constants';
+import formatCurrency from '../../utils/formatCurrency';
+import statusTypes from '../../translations/statusTypes.json';
 
-const Panel = ({
-  activeItemId,
-  isPanelOpen,
-  hidePanel,
-}) => (
-  <Modal isOpen={isPanelOpen}>
-    <Close onClick={hidePanel}>&times;</Close>
-    <Title>#{activeItemId}</Title>
-    <Fieldset>
-      <legend>Lender</legend>
-      Lorem ipsum dolor sit amet.
-    </Fieldset>
-    <Fieldset>
-      <legend>Borrower</legend>
-      Lorem ipsum dolor sit amet.
-    </Fieldset>
-    <Fieldset>
-      <legend>Transaction</legend>
-      Lorem ipsum dolor sit amet.
-    </Fieldset>
-    <Dropdown
-      expand={true}
-      defaultValue="none">
-      <option value="none" disabled>Status</option>
-      <option value="fromDate">Date</option>
-      <option value="status">Status</option>
-    </Dropdown>
-  </Modal>
-);
+class Panel extends Component {
+  static contextType = ServiceContext;
+
+  componentDidUpdate () {
+    const { activeItemId } = this.props;
+    const { getTransaction, fetchUsers } = this.context;
+    const item = getTransaction(activeItemId);
+
+    if (item) {
+      fetchUsers([item.lenderId, item.borrowerId]);
+    }
+  }
+
+  // This sub-render can be made into a component
+  renderUser = (user) => {
+    if (user.loading) {
+      return <span>...</span>;
+    } else if (user.error) {
+      return <span>An error occurred 🤔</span>;
+    }
+
+    return (
+      <Fragment>
+        <strong>{user.firstName} {user.lastName}</strong>
+        <span>{user.email}</span>
+        <span>{user.telephone}</span>
+        <i>{formatCurrency(user.credit, DEFAULT_CURRENCY)}</i>
+      </Fragment>
+    );
+  };
+
+  render () {
+    const { activeItemId, isPanelOpen, hidePanel } = this.props;
+
+    return (
+      <ServiceConsumer>
+        {({ getTransaction, getUser }) => {
+          const item = getTransaction(activeItemId);
+          const lender = item && getUser(item.lenderId);
+          const borrower = item && getUser(item.borrowerId);
+
+          return (
+            <Modal isOpen={isPanelOpen}>
+              {item &&
+                <Fragment>
+                  <Close onClick={hidePanel}>&times;</Close>
+                  <Title>#{item.id}</Title>
+                  <Fieldset>
+                    <legend>Lender</legend>
+                    <User>
+                      {lender ? this.renderUser(lender) : '—'}
+                    </User>
+                  </Fieldset>
+                  <Fieldset>
+                    <legend>Borrower</legend>
+                    <User>
+                      {borrower ? this.renderUser(borrower) : '—'}
+                    </User>
+                  </Fieldset>
+                  <Fieldset>
+                    <legend>Transaction</legend>
+                    <strong>#{item.itemId}</strong>
+                    <Date>
+                      <i>{format(item.fromDate, "D MMM 'YY")}</i>
+                      <i>{format(item.toDate, "D MMM 'YY")}</i>
+                      <span>
+                        {differenceInCalendarDays(item.toDate, item.fromDate)}d
+                      </span>
+                    </Date>
+                    <Price>
+                      {formatCurrency(item.price, item.currency)}
+                      {item.totalDiscount > 0 &&
+                        <Fragment>
+                          <del>{formatCurrency(item.totalDiscount, item.currency)}</del>
+                          <span>{item.creditUsed > 0 ? 'Credit' : item.promocode}</span>
+                        </Fragment>
+                      }
+                    </Price>
+                  </Fieldset>
+                  <Dropdown
+                    expand={true}
+                    value={item.status}
+                    onChange={() => false}>
+                    <option disabled>Status</option>
+                    {Object.keys(statusTypes).map((key, index) =>
+                      <option key={index} value={key}>{statusTypes[key]}</option>
+                    )}
+                  </Dropdown>
+                </Fragment>
+              }
+            </Modal>
+          );
+        }}
+      </ServiceConsumer>
+    );
+  }
+}
 
 export default Panel;

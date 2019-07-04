@@ -1,7 +1,7 @@
 {
   "ESCROW": "Escrow",
   "FL_APPROVED": "Approved",
-  "PRE_AUTHORIZED_CANCELLED": "Cancelled",
+  "PRE_AUTHORIZED_CANCELLED": "Cancelled (Auth)",
   "PRE_AUTHORIZED": "Pre-authorised",
   "PAID": "Paid",
   "CANCELLED": "Cancelled"

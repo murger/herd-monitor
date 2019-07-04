@@ -21,7 +21,7 @@ export const Modal = styled.aside`
 
 export const Title = styled.h2`
   margin: 0;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   color: ${props => props.theme.navy};
   line-height: 70px;
 `;
@@ -35,10 +35,9 @@ export const Close = styled.div`
   font-size: 54px;
 	font-weight: 100;
 	line-height: 56px;
-  color: ${props => props.theme.purple};
+  color: ${props => props.theme.lightgray};
   cursor: pointer;
   user-select: none;
-  border-radius: ${props => props.theme.radius};
 
   &:hover {
     color: ${props => props.theme.red};
@@ -49,7 +48,6 @@ export const Fieldset = styled.fieldset`
   border: 0ch;
 	border-top: 1px solid ${props => props.theme.gray};
 	margin: 16px 0;
-  margin-bottom: 24px;
   padding: 0;
 
   legend {
@@ -57,5 +55,50 @@ export const Fieldset = styled.fieldset`
     margin-bottom: 4px;
 	  padding: 0;
     padding-right: 8px;
+  }
+`;
+
+export const User = styled.div`
+  span {
+    display: block;
+    color: ${props => props.theme.darkgray};
+  }
+
+  i {
+    display: block;
+    font-style: normal;
+    color: ${props => props.theme.gray};
+  }
+`;
+
+export const Date = styled.div`
+  color: ${props => props.theme.darkgray};
+
+  i {
+    padding-right: 8px;
+    font-style: normal;
+
+    &:first-child:after {
+      padding-left: 8px;
+      content: '–';
+    }
+  }
+
+  span {
+    color: ${props => props.theme.lightgray};
+  }
+`;
+
+export const Price = styled.div`
+  color: ${props => props.theme.darkgray};
+
+  del {
+    padding-left: 8px;
+    color: ${props => props.theme.gray};
+  }
+
+  span {
+    padding-left: 8px;
+    color: ${props => props.theme.lightgray};
   }
 `;
