@@ -6,6 +6,7 @@ import {
 } from '../services/TransactionService';
 
 export const ServiceContext = React.createContext();
+export const ServiceConsumer = ServiceContext.Consumer;
 
 export class ServiceProvider extends Component {
   state = {
@@ -153,5 +154,3 @@ export class ServiceProvider extends Component {
     );
   }
 }
-
-export const ServiceConsumer = ServiceContext.Consumer;
