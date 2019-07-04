@@ -21,7 +21,7 @@ class Panel extends Component {
     }
   }
 
-  changeStatus = ({ target: { value }}) => {
+  changeStatus = ({ target: { value } }) => {
     const { activeItemId } = this.props;
     const { postStatus } = this.context;
 
