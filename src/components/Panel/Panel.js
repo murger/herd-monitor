@@ -4,7 +4,6 @@ import { format, differenceInCalendarDays } from 'date-fns';
 import { ServiceContext, ServiceConsumer } from '../../contexts/ServiceContext';
 import Dropdown from '../Dropdown';
 import { Modal, Title, Close, Fieldset, User, Date, Price } from './style';
-import { DEFAULT_CURRENCY } from '../../constants';
 import formatCurrency from '../../utils/formatCurrency';
 import statusTypes from '../../translations/statusTypes.json';
 
@@ -42,7 +41,7 @@ class Panel extends Component {
         <strong>{user.firstName} {user.lastName}</strong>
         <span>{user.email}</span>
         <span>{user.telephone}</span>
-        <i>{formatCurrency(user.credit, DEFAULT_CURRENCY)}</i>
+        <i>{formatCurrency(user.credit)}</i>
       </Fragment>
     );
   };
