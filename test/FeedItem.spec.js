@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import FeedItem from '../src/components/FeedItem';
 
-it('renders the correctly', () => {
+it('renders correctly', () => {
   const data = {
     'id': 35886,
     'lenderId': 8676,
