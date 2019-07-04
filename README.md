@@ -30,4 +30,4 @@ This mode runs a web server (via [Parcel](https://parceljs.org/)) in parallel wi
 ## If I had more time...
 - Would have added more tests.
 - Would remove the side panel and try using [Reach Router](https://reach.tech/router).
-- Would finish the loading/error states for status updating, I thought this pattern is well illustrated in other ways.
+- Would finish the loading/error states for status updating, although this pattern is well illustrated in other ways.
