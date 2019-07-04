@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { withTheme } from 'styled-components';
 import { format, differenceInCalendarDays } from 'date-fns';
 import { ServiceContext, ServiceConsumer } from '../../contexts/ServiceContext';
 import Dropdown from '../Dropdown';
@@ -20,12 +21,20 @@ class Panel extends Component {
     }
   }
 
+  changeStatus = ({ target: { value }}) => {
+    const { activeItemId } = this.props;
+    const { postStatus } = this.context;
+
+    // TODO: loading state
+    postStatus(activeItemId, value);
+  };
+
   // This sub-render can be made into a component
   renderUser = (user) => {
     if (user.loading) {
       return <span>...</span>;
     } else if (user.error) {
-      return <span>An error occurred 🤔</span>;
+      return <span>Oops...</span>;
     }
 
     return (
@@ -39,7 +48,7 @@ class Panel extends Component {
   };
 
   render () {
-    const { activeItemId, isPanelOpen, hidePanel } = this.props;
+    const { activeItemId, isPanelOpen, hidePanel, theme } = this.props;
 
     return (
       <ServiceConsumer>
@@ -88,8 +97,9 @@ class Panel extends Component {
                   </Fieldset>
                   <Dropdown
                     expand={true}
+                    color={theme.getStatusColour(item.status)}
                     value={item.status}
-                    onChange={() => false}>
+                    onChange={this.changeStatus}>
                     <option disabled>Status</option>
                     {Object.keys(statusTypes).map((key, index) =>
                       <option key={index} value={key}>{statusTypes[key]}</option>
@@ -105,4 +115,4 @@ class Panel extends Component {
   }
 }
 
-export default Panel;
+export default withTheme(Panel);

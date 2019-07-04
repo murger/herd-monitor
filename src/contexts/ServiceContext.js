@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import TransactionService from '../services/TransactionService';
-import UserService from '../services/UserService';
+import { getUserById } from '../services/UserService';
+import {
+  getTransactionsByPageNo,
+  updateTransactionById,
+} from '../services/TransactionService';
 
 export const ServiceContext = React.createContext();
 
@@ -28,7 +31,7 @@ export class ServiceProvider extends Component {
     this.setState({ loading: true });
 
     try {
-      const data = await TransactionService.getTransactionsByPageNo(++page);
+      const data = await getTransactionsByPageNo(++page);
 
       // Mix new data and re-sort
       this.setState(prevState => ({
@@ -67,11 +70,8 @@ export class ServiceProvider extends Component {
     return data.find(item => item.id === id);
   };
 
-  updateUser = async (index, data) => {
-    const { users } = this.state;
-
-    users.splice(index, 1, data);
-    await this.setState({ users });
+  fetchUsers = (users) => {
+    users.forEach(id => this.fetchUser(id));
   };
 
   fetchUser = async (id) => {
@@ -87,7 +87,7 @@ export class ServiceProvider extends Component {
     }
 
     try {
-      const data = await UserService.getUserById(id);
+      const data = await getUserById(id);
 
       await this.updateUser(index, Object.assign(data, { id }));
     } catch (error) {
@@ -95,8 +95,11 @@ export class ServiceProvider extends Component {
     }
   };
 
-  fetchUsers = (users) => {
-    users.forEach(id => this.fetchUser(id));
+  updateUser = async (index, data) => {
+    const { users } = this.state;
+
+    users.splice(index, 1, data);
+    await this.setState({ users });
   };
 
   getUser = (id) => {
@@ -104,6 +107,20 @@ export class ServiceProvider extends Component {
     const data = users.find(item => item.id === id);
 
     return data;
+  };
+
+  postStatus = async (id, value) => {
+    const { data } = this.state;
+    const index = data.findIndex(item => item.id === id);
+
+    try {
+      await updateTransactionById(id, { status: value });
+
+      data[index].status = value;
+      await this.setState({ data });
+    } catch (error) {
+      // TODO: inform the user
+    }
   };
 
   render () {
@@ -115,6 +132,7 @@ export class ServiceProvider extends Component {
       getTransaction,
       fetchUsers,
       getUser,
+      postStatus,
     } = this;
 
     return (
@@ -128,6 +146,7 @@ export class ServiceProvider extends Component {
           getTransaction,
           fetchUsers,
           getUser,
+          postStatus,
         }}>
         {children}
       </ServiceContext.Provider>

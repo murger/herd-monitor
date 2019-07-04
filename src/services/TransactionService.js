@@ -1,13 +1,18 @@
 import { API_HOST } from '../constants';
 
-class TransactionService {
-  async getTransactionsByPageNo (page) {
-    const url = [API_HOST, 'transactions', page || 1].join('/');
-    const response = await fetch(url);
-    const data = await response.json();
+export const getTransactionsByPageNo = async (page) => {
+  const url = [API_HOST, 'transactions', page || 1].join('/');
+  const response = await fetch(url);
+  const json = await response.json();
 
-    return data;
-  }
-}
+  return json;
+};
 
-export default new TransactionService();
+export const updateTransactionById = async (id, data) => {
+  const url = [API_HOST, 'transaction', id].join('/');
+  const body = JSON.stringify(data);
+  const response = await fetch(url, { method: 'PUT', body });
+  const json = await response.json();
+
+  return json;
+};
