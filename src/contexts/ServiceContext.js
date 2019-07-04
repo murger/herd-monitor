@@ -83,7 +83,7 @@ export class ServiceProvider extends Component {
     if (!user || user.error) {
       await this.updateUser(index, { id, loading: true });
     } else if (user) {
-      return user;
+      return;
     }
 
     try {
