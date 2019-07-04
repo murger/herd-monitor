@@ -86,14 +86,11 @@ export class ServiceProvider extends Component {
       return user;
     }
 
-    console.log(1, id);
-
     try {
       const data = await UserService.getUserById(id);
 
       await this.updateUser(index, Object.assign(data, { id }));
     } catch (error) {
-      console.log(0, id);
       await this.updateUser(index, { id, error: true });
     }
   };
