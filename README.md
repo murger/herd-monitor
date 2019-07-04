@@ -9,13 +9,11 @@ cd herd-monitor && npm i
 
 ## Running
 
-Use NPM to preview this project in the development mode
-
 ```sh
 npm start
 ```
 
-This mode runs a web server (via [Parcel](https://parceljs.org/)) in parallel with a binary file which provides a few REST endpoints. macOS binary is configured as default, if you're on a different platform please change the path in the `start:api` task within the `package.json` file, into a suitable binary found within the `bin` folder.
+This runs a web server (via [Parcel](https://parceljs.org/)) in parallel with a binary file which provides a few REST endpoints. macOS binary is configured as default, if you're on a different platform please change the path in the `start:api` task within the `package.json` file, into a suitable binary found within the `bin` folder.
 
 ## Build Notes
 - create-react-app comes with various bells and whistles attached, to keep things concise, a custom boilerplate was employed.
@@ -28,6 +26,7 @@ This mode runs a web server (via [Parcel](https://parceljs.org/)) in parallel wi
 - Mobile screens are supported.
 
 ## If I had more time...
-- Would have added more tests.
+- Would have added more tests, unit and end to end with [Puppeteer](https://pptr.dev/).
+- Would have added type checking with [Flow](https://flow.org/) along with defaultProps.
 - Would remove the side panel and try using [Reach Router](https://reach.tech/router).
 - Would finish the loading/error states for status updating, although this pattern is well illustrated in other ways.
