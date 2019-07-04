@@ -17,7 +17,7 @@ This runs a web server (via [Parcel](https://parceljs.org/)) in parallel with a 
 
 ## Build Notes
 - create-react-app comes with various bells and whistles, to keep things concise, a custom boilerplate was used.
-- In order to ensure code quality, ESLint `npm run lint` and snapshot testing were utilised.
+- In order to ensure code quality, we included [ESLint](https://eslint.org/) `npm run lint` and snapshot testing via [Jest](https://jestjs.io/).
 - Depending on the browser requirements, necessary [polyfills](https://www.npmjs.com/package/core-js) could be added.
 - [Context API](https://reactjs.org/docs/context.html) was used (yay) to consume data along with a custom services layer to reduce the footprint of external libraries and keep everything simpler and easier to understand. I feel that this helps greatly in terms of maintenance and with onboarding new people. [Redux](https://redux.js.org/), [MobX](https://mobx.js.org/) or even
 [unistore](https://www.npmjs.com/package/unistore) could also be considered for this role.
