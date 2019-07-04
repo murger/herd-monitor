@@ -6,9 +6,11 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint --format=pretty --ext .js src",
+    "clean": "rm -rf dist",
+    "start": "concurrently npm:start:* --raw",
     "start:api": "./bin/server-darwin-10.6-amd64",
-    "start:web": "parcel pub/index.html",
-    "start": "concurrently npm:start:* --raw"
+    "start:web": "npm run clean && parcel pub/index.html",
+    "build": "npm run clean && parcel build pub/index.html --no-source-maps"
   },
   "keywords": [],
   "author": "Gürhan Mermer <gmermer@gmail.com>",
