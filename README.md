@@ -16,7 +16,7 @@ npm start
 This runs a web server (via [Parcel](https://parceljs.org/)) in parallel with a binary file which provides a few REST endpoints. macOS binary is configured as default, if you're on a different platform please change the path in the `start:api` task within the `package.json` file, into a suitable binary found within the `bin` folder.
 
 ## Build Notes
-- create-react-app comes with various bells and whistles attached, to keep things concise, a custom boilerplate was employed.
+- create-react-app comes with various bells and whistles, to keep things concise, a custom boilerplate was used.
 - In order to ensure code quality, I've used ESLint (`npm run lint`) and snapshot testing.
 - Depending on the browser requirements, necessary [polyfills](https://www.npmjs.com/package/core-js) could be added.
 - [Context API](https://reactjs.org/docs/context.html) was used (yay) to consume data along with a custom services layer to reduce the footprint of external libraries and keep everything simpler and easier to understand. I feel that this helps greatly in terms of maintenance and with onboarding new people. [Redux](https://redux.js.org/), [MobX](https://mobx.js.org/) or even
