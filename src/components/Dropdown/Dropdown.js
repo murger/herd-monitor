@@ -1,8 +1,8 @@
 import React from 'react';
 import { Wrapper, Select } from './style';
 
-const Dropdown = ({ expand = false, children, ...props }) => (
-  <Wrapper expand={expand}>
+const Dropdown = ({ expand, color, children, ...props }) => (
+  <Wrapper expand={expand} color={color}>
     <Select {...props}>
       {children}
     </Select>

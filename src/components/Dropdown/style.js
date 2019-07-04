@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   position: relative;
   display: inline-block;
   margin-bottom: 4px;
-  color: ${props => props.theme.purple};
-  border: 1px solid ${props => props.theme.purple};
+  color: ${({ theme, color }) => (color) ? color : theme.purple};
+  border: 1px solid ${({ theme, color }) => (color) ? color : theme.purple}
   border-radius: ${props => props.theme.radius};
   vertical-align: baseline;
   cursor: pointer;
@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
     right: 10px;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 7px solid ${props => props.theme.purple};
+    border-top: 7px solid ${({ theme, color }) => (color) ? color : theme.purple};
     pointer-events: none;
     transform: translateY(-50%);
   }
