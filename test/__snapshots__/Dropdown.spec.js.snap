@@ -2,10 +2,10 @@
 
 exports[`renders the correctly 1`] = `
 <div
-  className="sc-bdVaJa fRmVhe"
+  className="sc-bdVaJa cXMqgT"
 >
   <select
-    className="sc-bwzfXH ejOUFP"
+    className="sc-bwzfXH cniJpI"
   />
 </div>
 `;

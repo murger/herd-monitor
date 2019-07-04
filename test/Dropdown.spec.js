@@ -1,8 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Paginator from '../src/components/Paginator';
+import Dropdown from '../src/components/Dropdown';
 
 it('renders the correctly', () => {
-  const tree = renderer.create(<Paginator />).toJSON();
+  const tree = renderer.create(<Dropdown />).toJSON();
+
   expect(tree).toMatchSnapshot();
 });

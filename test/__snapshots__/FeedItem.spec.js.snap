@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the correctly 1`] = `
+<li
+  className="sc-bdVaJa cISSwi"
+>
+  <span
+    className="sc-bwzfXH zkVWP"
+  >
+    #
+    35886
+  </span>
+  <span
+    className="sc-htpNat eAfzhL"
+  >
+    <span>
+      15 Feb '18
+    </span>
+    <i>
+      (
+      1
+      d)
+    </i>
+  </span>
+  <span
+    className="sc-bxivhb dzoBoK"
+  >
+    £2,025.00
+  </span>
+  <span
+    className="sc-ifAKCX cTbvsb"
+    type="FL_APPROVED"
+  >
+    Approved
+  </span>
+</li>
+`;

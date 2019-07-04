@@ -70,3 +70,9 @@ export const Status = styled.span`
     background-color: ${props => props.theme.getStatusColour(props.type)};
   }
 `;
+
+Status.defaultProps = {
+  theme: {
+    getStatusColour: () => 'white',
+  },
+};
