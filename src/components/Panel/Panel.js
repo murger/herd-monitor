@@ -29,7 +29,7 @@ class Panel extends Component {
   };
 
   // This sub-render can be made into a component
-  renderUser = (user) => {
+  renderUser = (user = {}) => {
     if (user.loading) {
       return <span>...</span>;
     } else if (user.error) {
@@ -64,15 +64,11 @@ class Panel extends Component {
                   <Title>#{item.id}</Title>
                   <Fieldset>
                     <legend>Lender</legend>
-                    <User>
-                      {lender ? this.renderUser(lender) : '—'}
-                    </User>
+                    <User>{this.renderUser(lender)}</User>
                   </Fieldset>
                   <Fieldset>
                     <legend>Borrower</legend>
-                    <User>
-                      {borrower ? this.renderUser(borrower) : '—'}
-                    </User>
+                    <User>{this.renderUser(borrower)}</User>
                   </Fieldset>
                   <Fieldset>
                     <legend>Transaction</legend>
