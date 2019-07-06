@@ -7,6 +7,7 @@ import UserInfo from './UserInfo';
 import { Modal, Title, Close, Fieldset, Date, Price } from './style';
 import formatCurrency from '../../utils/formatCurrency';
 import statusTypes from '../../translations/statusTypes.json';
+import { DATE_FORMAT } from '../constants';
 
 class Panel extends Component {
   static contextType = ServiceContext;
@@ -58,8 +59,8 @@ class Panel extends Component {
                     <legend>Transaction</legend>
                     <strong>#{item.itemId}</strong>
                     <Date>
-                      <i>{format(item.fromDate, "D MMM 'YY")}</i>
-                      <i>{format(item.toDate, "D MMM 'YY")}</i>
+                      <i>{format(item.fromDate, DATE_FORMAT)}</i>
+                      <i>{format(item.toDate, DATE_FORMAT)}</i>
                       <span>
                         {differenceInCalendarDays(item.toDate, item.fromDate)}d
                       </span>
