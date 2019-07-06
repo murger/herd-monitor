@@ -105,9 +105,8 @@ export class ServiceProvider extends Component {
 
   getUser = (id) => {
     const { users } = this.state;
-    const data = users.find(item => item.id === id);
 
-    return data;
+    return users.find(item => item.id === id);
   };
 
   postStatus = async (id, value) => {

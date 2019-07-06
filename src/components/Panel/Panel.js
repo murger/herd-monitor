@@ -47,17 +47,18 @@ class Panel extends Component {
   };
 
   render () {
-    const { activeItemId, isPanelOpen, hidePanel, theme } = this.props;
+    const { activeItemId, hidePanel, theme } = this.props;
 
     return (
       <ServiceConsumer>
         {({ getTransaction, getUser }) => {
+          const isOpen = !!activeItemId;
           const item = getTransaction(activeItemId);
           const lender = item && getUser(item.lenderId);
           const borrower = item && getUser(item.borrowerId);
 
           return (
-            <Modal isOpen={isPanelOpen}>
+            <Modal isOpen={isOpen}>
               {item &&
                 <Fragment>
                   <Close onClick={hidePanel}>&times;</Close>

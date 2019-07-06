@@ -9,27 +9,16 @@ import Paginator from '../Paginator';
 
 class App extends Component {
   state = {
-    isPanelOpen: false,
     activeItemId: null,
   };
 
-  showPanel = (id) => {
-    this.setState({
-      isPanelOpen: true,
-      activeItemId: id,
-    });
-  };
-
-  hidePanel = () => {
-    this.setState({
-      isPanelOpen: false,
-      activeItemId: null,
-    });
+  togglePanel = (id) => {
+    this.setState({ activeItemId: id });
   };
 
   render () {
-    const { showPanel, hidePanel } = this;
-    const { activeItemId, isPanelOpen } = this.state;
+    const { togglePanel } = this;
+    const { activeItemId } = this.state;
 
     return (
       <ThemeProvider theme={theme}>
@@ -38,11 +27,10 @@ class App extends Component {
           <ServiceProvider>
             <Header />
             <Feed
-              showPanel={showPanel}
+              showPanel={togglePanel}
               activeItemId={activeItemId} />
             <Panel
-              hidePanel={hidePanel}
-              isPanelOpen={isPanelOpen}
+              hidePanel={() => togglePanel(null)}
               activeItemId={activeItemId} />
             <Paginator />
           </ServiceProvider>
