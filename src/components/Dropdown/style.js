@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  width: ${props => props.expand ? '100%' : 'auto'};
+  width: ${props => props.expanded ? '100%' : 'auto'};
   position: relative;
   display: inline-block;
   margin-bottom: 4px;
