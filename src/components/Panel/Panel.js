@@ -7,7 +7,7 @@ import UserInfo from './UserInfo';
 import { Modal, Title, Close, Fieldset, Date, Price } from './style';
 import formatCurrency from '../../utils/formatCurrency';
 import statusTypes from '../../translations/statusTypes.json';
-import { DATE_FORMAT } from '../constants';
+import { DATE_FORMAT } from '../../constants';
 
 class Panel extends Component {
   static contextType = ServiceContext;
