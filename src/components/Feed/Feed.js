@@ -1,6 +1,6 @@
 import React from 'react';
 import { ServiceConsumer } from '../../contexts/ServiceContext';
-import FeedItem from '../FeedItem';
+import FeedItem from './FeedItem';
 import { List } from './style';
 
 const Feed = ({ showPanel, activeItemId }) => (

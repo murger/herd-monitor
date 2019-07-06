@@ -3,7 +3,8 @@ import { withTheme } from 'styled-components';
 import { format, differenceInCalendarDays } from 'date-fns';
 import { ServiceContext, ServiceConsumer } from '../../contexts/ServiceContext';
 import Dropdown from '../Dropdown';
-import { Modal, Title, Close, Fieldset, User, Date, Price } from './style';
+import UserInfo from './UserInfo';
+import { Modal, Title, Close, Fieldset, Date, Price } from './style';
 import formatCurrency from '../../utils/formatCurrency';
 import statusTypes from '../../translations/statusTypes.json';
 
@@ -28,24 +29,6 @@ class Panel extends Component {
     postStatus(activeItemId, value);
   };
 
-  // This sub-render can be made into a component
-  renderUser = (user = {}) => {
-    if (user.loading) {
-      return <span>...</span>;
-    } else if (user.error) {
-      return <span>Oops...</span>;
-    }
-
-    return (
-      <Fragment>
-        <strong>{user.firstName} {user.lastName}</strong>
-        <span>{user.email}</span>
-        <span>{user.telephone}</span>
-        <i>{formatCurrency(user.credit)}</i>
-      </Fragment>
-    );
-  };
-
   render () {
     const { activeItemId, hidePanel, theme } = this.props;
 
@@ -65,11 +48,11 @@ class Panel extends Component {
                   <Title>#{item.id}</Title>
                   <Fieldset>
                     <legend>Lender</legend>
-                    <User>{this.renderUser(lender)}</User>
+                    <UserInfo data={lender} />
                   </Fieldset>
                   <Fieldset>
                     <legend>Borrower</legend>
-                    <User>{this.renderUser(borrower)}</User>
+                    <UserInfo data={borrower} />
                   </Fieldset>
                   <Fieldset>
                     <legend>Transaction</legend>
@@ -92,7 +75,7 @@ class Panel extends Component {
                     </Price>
                   </Fieldset>
                   <Dropdown
-                    expand={true}
+                    expanded
                     color={theme.getStatusColour(item.status)}
                     value={item.status}
                     onChange={this.changeStatus}>
