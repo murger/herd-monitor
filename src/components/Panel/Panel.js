@@ -12,10 +12,16 @@ import { DATE_FORMAT } from '../../constants';
 class Panel extends Component {
   static contextType = ServiceContext;
 
-  componentDidUpdate () {
+  getActiveItem = () => {
     const { activeItemId } = this.props;
-    const { getTransaction, fetchUsers } = this.context;
-    const item = getTransaction(activeItemId);
+    const { getTransaction } = this.context;
+
+    return getTransaction(activeItemId);
+  };
+
+  componentDidUpdate () {
+    const { fetchUsers } = this.context;
+    const item = this.getActiveItem();
 
     if (item) {
       fetchUsers([item.lenderId, item.borrowerId]);
@@ -31,9 +37,8 @@ class Panel extends Component {
   };
 
   render () {
-    const { getTransaction } = this.context;
-    const { activeItemId, setActiveItem, theme } = this.props;
-    const item = getTransaction(activeItemId) || {};
+    const { setActiveItem, theme } = this.props;
+    const item = this.getActiveItem() || {};
 
     return (
       <ServiceConsumer>
