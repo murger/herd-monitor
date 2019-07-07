@@ -28,7 +28,7 @@ class App extends Component {
             <Header />
             <Feed
               activeItemId={activeItemId}
-              setActiveItem ={setActiveItem} />
+              setActiveItem={setActiveItem} />
             <Panel
               activeItemId={activeItemId}
               setActiveItem={setActiveItem} />

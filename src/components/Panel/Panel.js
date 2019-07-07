@@ -29,9 +29,9 @@ class Panel extends PureComponent {
 
   changeStatus = ({ target: { value } }) => {
     const { activeItemId } = this.props;
-    const { postStatus } = this.context;
+    const { updateStatus } = this.context;
 
-    postStatus(activeItemId, value);
+    updateStatus(activeItemId, value);
   };
 
   render () {

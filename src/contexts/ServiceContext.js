@@ -82,7 +82,7 @@ export class ServiceProvider extends Component {
     const user = this.getUser(id);
 
     if (!user || user.error) {
-      await this.updateUser(index, { id, loading: true });
+      await this.setUser(index, { id, loading: true });
     } else if (user) {
       return;
     }
@@ -90,13 +90,13 @@ export class ServiceProvider extends Component {
     try {
       const data = await getUserById(id);
 
-      await this.updateUser(index, Object.assign(data, { id }));
+      await this.setUser(index, Object.assign(data, { id }));
     } catch (error) {
-      await this.updateUser(index, { id, error: true });
+      await this.setUser(index, { id, error: true });
     }
   };
 
-  updateUser = async (index, data) => {
+  setUser = async (index, data) => {
     const { users } = this.state;
 
     users.splice(index, 1, data);
@@ -109,7 +109,7 @@ export class ServiceProvider extends Component {
     return users.find(item => item.id === id);
   };
 
-  postStatus = async (id, value) => {
+  updateStatus = async (id, value) => {
     const { data } = this.state;
     const index = data.findIndex(item => item.id === id);
 
@@ -133,7 +133,7 @@ export class ServiceProvider extends Component {
       getTransaction,
       fetchUsers,
       getUser,
-      postStatus,
+      updateStatus,
     } = this;
 
     return (
@@ -147,7 +147,7 @@ export class ServiceProvider extends Component {
           getTransaction,
           fetchUsers,
           getUser,
-          postStatus,
+          updateStatus,
         }}>
         {children}
       </ServiceContext.Provider>
