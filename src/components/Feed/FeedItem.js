@@ -3,12 +3,13 @@ import { format, differenceInCalendarDays } from 'date-fns';
 import { Item, Id, Date, Price, Status } from './style';
 import translateStatus from '../../utils/translateStatus';
 import formatCurrency from '../../utils/formatCurrency';
+import { DATE_FORMAT } from '../../constants';
 
 const FeedItem = ({ item, ...props }) => (
   <Item {...props}>
     <Id>#{item.id}</Id>
     <Date>
-      <span>{format(item.fromDate, "D MMM 'YY")}</span>
+      <span>{format(item.fromDate, DATE_FORMAT)}</span>
       <i>({differenceInCalendarDays(item.toDate, item.fromDate)}d)</i>
     </Date>
     <Price>
