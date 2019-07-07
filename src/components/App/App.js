@@ -12,13 +12,13 @@ class App extends Component {
     activeItemId: null,
   };
 
-  togglePanel = (id) => {
+  setActiveItem = (id) => {
     this.setState({ activeItemId: id });
   };
 
   render () {
-    const { togglePanel } = this;
     const { activeItemId } = this.state;
+    const { setActiveItem } = this;
 
     return (
       <ThemeProvider theme={theme}>
@@ -27,11 +27,11 @@ class App extends Component {
           <ServiceProvider>
             <Header />
             <Feed
-              showPanel={togglePanel}
-              activeItemId={activeItemId} />
+              activeItemId={activeItemId}
+              setActiveItem ={setActiveItem} />
             <Panel
-              hidePanel={() => togglePanel(null)}
-              activeItemId={activeItemId} />
+              activeItemId={activeItemId}
+              setActiveItem={setActiveItem} />
             <Paginator />
           </ServiceProvider>
         </Fragment>

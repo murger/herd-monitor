@@ -3,7 +3,7 @@ import { ServiceConsumer } from '../../contexts/ServiceContext';
 import FeedItem from './FeedItem';
 import { List } from './style';
 
-const Feed = ({ showPanel, activeItemId }) => (
+const Feed = ({ activeItemId, setActiveItem }) => (
   <List>
     <ServiceConsumer>
       {({ data }) =>
@@ -12,7 +12,7 @@ const Feed = ({ showPanel, activeItemId }) => (
             key={index}
             item={item}
             active={activeItemId === item.id}
-            onClick={() => showPanel(item.id)} />
+            onClick={() => setActiveItem(item.id)} />
         ))
       }
     </ServiceConsumer>

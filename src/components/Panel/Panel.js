@@ -23,7 +23,7 @@ class Panel extends Component {
   }
 
   changeStatus = ({ target: { value } }) => {
-    const { activeItemId } = this.props;
+    const { activeItemId } = this.state;
     const { postStatus } = this.context;
 
     // TODO: loading state
@@ -31,65 +31,58 @@ class Panel extends Component {
   };
 
   render () {
-    const { activeItemId, hidePanel, theme } = this.props;
+    const { getTransaction } = this.context;
+    const { activeItemId, setActiveItem, theme } = this.props;
+    const item = getTransaction(activeItemId) || {};
 
     return (
       <ServiceConsumer>
-        {({ getTransaction, getUser }) => {
-          const isOpen = !!activeItemId;
-          const item = getTransaction(activeItemId);
-          const lender = item && getUser(item.lenderId);
-          const borrower = item && getUser(item.borrowerId);
-
-          return (
-            <Modal isOpen={isOpen}>
-              {item &&
-                <Fragment>
-                  <Close onClick={hidePanel}>&times;</Close>
-                  <Title>#{item.id}</Title>
-                  <Fieldset>
-                    <legend>Lender</legend>
-                    <UserInfo data={lender} />
-                  </Fieldset>
-                  <Fieldset>
-                    <legend>Borrower</legend>
-                    <UserInfo data={borrower} />
-                  </Fieldset>
-                  <Fieldset>
-                    <legend>Transaction</legend>
-                    <strong>#{item.itemId}</strong>
-                    <Date>
-                      <i>{format(item.fromDate, DATE_FORMAT)}</i>
-                      <i>{format(item.toDate, DATE_FORMAT)}</i>
-                      <span>
-                        {differenceInCalendarDays(item.toDate, item.fromDate)}d
-                      </span>
-                    </Date>
-                    <Price>
-                      {formatCurrency(item.price, item.currency)}
-                      {item.totalDiscount > 0 &&
-                        <Fragment>
-                          <del>{formatCurrency(item.totalDiscount, item.currency)}</del>
-                          <span>{item.creditUsed > 0 ? 'Credit' : item.promocode}</span>
-                        </Fragment>
-                      }
-                    </Price>
-                  </Fieldset>
-                  <Dropdown
-                    expanded
-                    color={theme.getStatusColour(item.status)}
-                    value={item.status}
-                    onChange={this.changeStatus}>
-                    <option disabled>Status</option>
-                    {Object.keys(statusTypes).map((key, index) =>
-                      <option key={index} value={key}>{statusTypes[key]}</option>
-                    )}
-                  </Dropdown>
-                </Fragment>
-              }
-            </Modal>
-          );
-        }}
+        {({ getUser }) => (
+          <Modal isOpen={!!item.id}>
+            <Fragment>
+              <Close onClick={() => setActiveItem(null)}>&times;</Close>
+              <Title>#{item.id}</Title>
+              <Fieldset>
+                <legend>Lender</legend>
+                <UserInfo data={getUser(item.lenderId)} />
+              </Fieldset>
+              <Fieldset>
+                <legend>Borrower</legend>
+                <UserInfo data={getUser(item.borrowerId)} />
+              </Fieldset>
+              <Fieldset>
+                <legend>Transaction</legend>
+                <strong>#{item.itemId}</strong>
+                <Date>
+                  <i>{format(item.fromDate, DATE_FORMAT)}</i>
+                  <i>{format(item.toDate, DATE_FORMAT)}</i>
+                  <span>
+                    {differenceInCalendarDays(item.toDate, item.fromDate)}d
+                  </span>
+                </Date>
+                <Price>
+                  {formatCurrency(item.price, item.currency)}
+                  {item.totalDiscount > 0 &&
+                    <Fragment>
+                      <del>{formatCurrency(item.totalDiscount, item.currency)}</del>
+                      <span>{item.creditUsed > 0 ? 'Credit' : item.promocode}</span>
+                    </Fragment>
+                  }
+                </Price>
+              </Fieldset>
+              <Dropdown
+                expanded
+                color={theme.getStatusColour(item.status)}
+                value={item.status}
+                onChange={this.changeStatus}>
+                <option disabled>Status</option>
+                {Object.keys(statusTypes).map((key, index) =>
+                  <option key={index} value={key}>{statusTypes[key]}</option>
+                )}
+              </Dropdown>
+            </Fragment>
+          </Modal>
+        )}
       </ServiceConsumer>
     );
   }
