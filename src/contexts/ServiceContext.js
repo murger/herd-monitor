@@ -114,6 +114,7 @@ export class ServiceProvider extends Component {
     const index = data.findIndex(item => item.id === id);
 
     try {
+      // TODO: loading state
       await updateTransactionById(id, { status: value });
 
       data[index].status = value;

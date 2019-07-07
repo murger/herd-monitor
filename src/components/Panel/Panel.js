@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { withTheme } from 'styled-components';
 import { format, differenceInCalendarDays } from 'date-fns';
 import { ServiceContext, ServiceConsumer } from '../../contexts/ServiceContext';
@@ -9,41 +9,39 @@ import formatCurrency from '../../utils/formatCurrency';
 import statusTypes from '../../translations/statusTypes.json';
 import { DATE_FORMAT } from '../../constants';
 
-class Panel extends Component {
+class Panel extends PureComponent {
   static contextType = ServiceContext;
 
-  getActiveItem = () => {
-    const { activeItemId } = this.props;
-    const { getTransaction } = this.context;
-
-    return getTransaction(activeItemId);
+  state = {
+    item: {},
   };
 
   componentDidUpdate () {
-    const { fetchUsers } = this.context;
-    const item = this.getActiveItem();
+    const { activeItemId } = this.props;
+    const { getTransaction, fetchUsers } = this.context;
+    const item = getTransaction(activeItemId);
 
     if (item) {
+      this.setState({ item });
       fetchUsers([item.lenderId, item.borrowerId]);
     }
   }
 
   changeStatus = ({ target: { value } }) => {
-    const { activeItemId } = this.state;
+    const { activeItemId } = this.props;
     const { postStatus } = this.context;
 
-    // TODO: loading state
     postStatus(activeItemId, value);
   };
 
   render () {
-    const { setActiveItem, theme } = this.props;
-    const item = this.getActiveItem() || {};
+    const { activeItemId, setActiveItem, theme } = this.props;
+    const { item } = this.state;
 
     return (
       <ServiceConsumer>
         {({ getUser }) => (
-          <Modal isOpen={!!item.id}>
+          <Modal isOpen={!!activeItemId}>
             <Fragment>
               <Close onClick={() => setActiveItem(null)}>&times;</Close>
               <Title>#{item.id}</Title>
