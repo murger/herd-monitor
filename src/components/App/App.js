@@ -10,11 +10,11 @@ import Paginator from '../Paginator';
 class App extends Component {
   state = {
     activeItemId: null,
-  };
+  }
 
   setActiveItem = (id) => {
     this.setState({ activeItemId: id });
-  };
+  }
 
   render () {
     const { activeItemId } = this.state;

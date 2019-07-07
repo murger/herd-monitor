@@ -14,7 +14,7 @@ class Panel extends PureComponent {
 
   state = {
     item: {},
-  };
+  }
 
   componentDidUpdate () {
     const { activeItemId } = this.props;
@@ -32,7 +32,7 @@ class Panel extends PureComponent {
     const { updateStatus } = this.context;
 
     updateStatus(activeItemId, value);
-  };
+  }
 
   render () {
     const { activeItemId, setActiveItem, theme } = this.props;

@@ -16,7 +16,7 @@ export class ServiceProvider extends Component {
     error: false,
     loading: true,
     sort: null,
-  };
+  }
 
   componentDidMount () {
     this.fetchTransactions();
@@ -24,7 +24,7 @@ export class ServiceProvider extends Component {
 
   resetError = () => {
     this.setState({ error: false });
-  };
+  }
 
   fetchTransactions = async () => {
     let { page } = this.state;
@@ -47,7 +47,7 @@ export class ServiceProvider extends Component {
         loading: false,
       }, () => setTimeout(this.resetError, 1000 * 3.5));
     }
-  };
+  }
 
   sortTransactions = (field) => {
     const { data, sort } = this.state;
@@ -63,17 +63,17 @@ export class ServiceProvider extends Component {
         data: data.sort(criteria[key]),
       });
     }
-  };
+  }
 
   getTransaction = (id) => {
     const { data } = this.state;
 
     return data.find(item => item.id === id);
-  };
+  }
 
   fetchUsers = (users) => {
     users.forEach(id => this.fetchUser(id));
-  };
+  }
 
   fetchUser = async (id) => {
     const { users } = this.state;
@@ -94,20 +94,20 @@ export class ServiceProvider extends Component {
     } catch (error) {
       await this.setUser(index, { id, error: true });
     }
-  };
+  }
 
   setUser = async (index, data) => {
     const { users } = this.state;
 
     users.splice(index, 1, data);
     await this.setState({ users });
-  };
+  }
 
   getUser = (id) => {
     const { users } = this.state;
 
     return users.find(item => item.id === id);
-  };
+  }
 
   updateStatus = async (id, value) => {
     const { data } = this.state;
@@ -122,7 +122,7 @@ export class ServiceProvider extends Component {
     } catch (error) {
       // TODO: inform the user
     }
-  };
+  }
 
   render () {
     const { children } = this.props;
