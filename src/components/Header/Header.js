@@ -2,7 +2,7 @@ import React from 'react';
 import { ServiceConsumer } from '../../contexts/ServiceContext';
 import Dropdown from '../Dropdown';
 import { Masthead, Logo, Typeface } from './style';
-import larry from '../../../pub/larry.svg';
+import larry from '../../../pub/assets/larry.svg';
 
 const Header = () => (
   <Masthead>

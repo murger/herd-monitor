@@ -1,0 +1,46 @@
+@font-face {
+  font-family: Mabry;
+  font-display: swap;
+	font-style: normal;
+	font-weight: 500;
+	src: url(./mabry-medium-pro.otf);
+	src: url(./mabry-medium-pro.eot);
+  src: url(./mabry-medium-pro.eot#iefix) format("embedded-opentype"),
+    url(./mabry-medium-pro.woff2) format("woff2"),
+    url(./mabry-medium-pro.woff) format("woff"),
+    url(./mabry-medium-pro.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Mabry;
+  font-display: swap;
+	font-style: normal;
+	font-weight: 700;
+	src: url(./mabry-bold-pro.otf);
+	src: url(./mabry-bold-pro.eot);
+  src: url(./mabry-bold-pro.eot#iefix) format("embedded-opentype"),
+    url(./mabry-bold-pro.woff2) format("woff2"),
+    url(./mabry-bold-pro.woff) format("woff"),
+    url(./mabry-bold-pro.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Mabry;
+  font-display: swap;
+	font-style: normal;
+	font-weight: 900;
+	src: url(./mabry-black-pro.otf);
+	src: url(./mabry-black-pro.eot);
+  src: url(./mabry-black-pro.eot#iefix) format("embedded-opentype"),
+    url(./mabry-black-pro.woff2) format("woff2"),
+    url(./mabry-black-pro.woff) format("woff"),
+    url(./mabry-black-pro.ttf) format("truetype");
+}
+
+body {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Mabry, Helvetica, Arial, Sans-serif;
+  line-height: 22px;
+  -webkit-font-smoothing: antialiased;
+}
