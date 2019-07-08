@@ -19,6 +19,7 @@ export const Item = styled.li`
   background-color: ${props => (props.active) && props.theme.offwhite};
   cursor: pointer;
   user-select: none;
+  transition: background-color 0.2s ease;
 
   &:hover {
     background-color: ${props => props.theme.whiteish};
