@@ -79,7 +79,7 @@ export class ServiceProvider extends Component {
     const user = this.getUser(id);
 
     if (!user || user.error) {
-      await this.setUser(id, { id, loading: true });
+      await this.setUser(id, { loading: true });
     } else if (user) {
       return;
     }
@@ -87,18 +87,18 @@ export class ServiceProvider extends Component {
     try {
       const data = await getUserById(id);
 
-      await this.setUser(id, Object.assign(data, { id }));
+      await this.setUser(id, data);
     } catch (error) {
-      await this.setUser(id, { id, error: true });
+      await this.setUser(id, { error: true });
     }
   }
 
   setUser = async (id, data) => {
     const { users } = this.state;
-    const index = users.findIndex(item => item.id === id);
-    const idx = (index < 0) ? users.length : index;
+    const i = users.findIndex(item => item.id === id);
+    const index = (i < 0) ? users.length : i;
 
-    users.splice(idx, 1, data);
+    users.splice(index, 1, { id, ...data });
     await this.setState({ users });
   }
 
