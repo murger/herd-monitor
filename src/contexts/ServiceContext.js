@@ -76,13 +76,10 @@ export class ServiceProvider extends Component {
   }
 
   fetchUser = async (id) => {
-    const { users } = this.state;
-    const idx = users.findIndex(item => item.id === id);
-    const index = (idx < 0) ? users.length : idx;
     const user = this.getUser(id);
 
     if (!user || user.error) {
-      await this.setUser(index, { id, loading: true });
+      await this.setUser(id, { id, loading: true });
     } else if (user) {
       return;
     }
@@ -90,16 +87,18 @@ export class ServiceProvider extends Component {
     try {
       const data = await getUserById(id);
 
-      await this.setUser(index, Object.assign(data, { id }));
+      await this.setUser(id, Object.assign(data, { id }));
     } catch (error) {
-      await this.setUser(index, { id, error: true });
+      await this.setUser(id, { id, error: true });
     }
   }
 
-  setUser = async (index, data) => {
+  setUser = async (id, data) => {
     const { users } = this.state;
+    const index = users.findIndex(item => item.id === id);
+    const idx = (index < 0) ? users.length : index;
 
-    users.splice(index, 1, data);
+    users.splice(idx, 1, data);
     await this.setState({ users });
   }
 
