@@ -3,10 +3,10 @@ import { ServiceConsumer } from '../../contexts/ServiceContext';
 import FeedItem from './FeedItem';
 import { List } from './style';
 
-const Feed = ({ activeItemId, setActiveItem }) => (
+const Feed = () => (
   <List>
     <ServiceConsumer>
-      {({ data }) =>
+      {({ data, activeItemId, setActiveItem }) =>
         data.map((item, index) => (
           <FeedItem
             key={index}

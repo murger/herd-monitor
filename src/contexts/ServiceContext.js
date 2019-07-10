@@ -16,6 +16,11 @@ export class ServiceProvider extends Component {
     error: false,
     loading: true,
     sort: null,
+    activeItemId: null,
+  }
+
+  setActiveItem = (id) => {
+    this.setState({ activeItemId: id });
   }
 
   componentDidMount () {
@@ -125,7 +130,7 @@ export class ServiceProvider extends Component {
 
   render () {
     const { children } = this.props;
-    const { data, loading, error } = this.state;
+    const { data, loading, error, activeItemId } = this.state;
     const {
       fetchTransactions,
       sortTransactions,
@@ -133,6 +138,7 @@ export class ServiceProvider extends Component {
       fetchUsers,
       getUser,
       updateStatus,
+      setActiveItem,
     } = this;
 
     return (
@@ -141,12 +147,14 @@ export class ServiceProvider extends Component {
           data,
           error,
           loading,
+          activeItemId,
           fetchTransactions,
           sortTransactions,
           getTransaction,
           fetchUsers,
           getUser,
           updateStatus,
+          setActiveItem,
         }}>
         {children}
       </ServiceContext.Provider>

@@ -8,30 +8,15 @@ import Panel from '../Panel';
 import Paginator from '../Paginator';
 
 class App extends Component {
-  state = {
-    activeItemId: null,
-  }
-
-  setActiveItem = (id) => {
-    this.setState({ activeItemId: id });
-  }
-
   render () {
-    const { activeItemId } = this.state;
-    const { setActiveItem } = this;
-
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
           <GlobalStyles />
           <ServiceProvider>
             <Header />
-            <Feed
-              activeItemId={activeItemId}
-              setActiveItem={setActiveItem} />
-            <Panel
-              activeItemId={activeItemId}
-              setActiveItem={setActiveItem} />
+            <Feed />
+            <Panel />
             <Paginator />
           </ServiceProvider>
         </Fragment>
